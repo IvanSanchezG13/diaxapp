@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <title>Hello World</title>
+        
+<script>       
+        function enviar(){
+			var checkbox_value = "";
+    $(":checkbox").each(function () {
+        var ischecked = $(this).is(":checked");
+        if (ischecked) {
+            checkbox_value += $(this).val() + "|";
+        }});
+		alert("uno" + checkbox_value);
+		seccion = $("#seccion").val();
+		alert("Hola mundo" + seccion);
+		var votos ={
+			"sec":seccion,
+			"casilla":$("#casilla").val(),
+			"votos": checkbox_value,
+		};
+	alert(votos['sec']);
+	$.ajax({
+		url:"http://192.168.1.100/regvotos.php",
+		dataType:"json",
+		type: 'POST',
+		contentType:"application/json",
+		data: JSON.stringify(votos),
+		success: function(data){
+			alert(data.states);
+			alert(data.pers);
+			
+		}
+		});
+	
+	
+}
+</script>
+    </head>
+    <body>
+    <div id="content">
+    <div class="sec" data-role="fieldcontain">
+	  	<label for="textinput">Seccion:</label>
+		<input type="text" name="seccion" id="seccion" value=""/>
+    </div>
+    <br/>
+    <br/>
+    
+    <div data-role="fieldcontain">       
+	      <label for="selectmenu" class="select">Casilla:</label>
+	      <select name="casilla" id="casilla">
+          	<option value="BASICA">Basica</option>
+	        <option value="CONTIGUA">Contigua</option>
+	        <option value="DOBLE CONTIGUA">Doble Contigua</option>
+	        <option value="TRIPLE CONTIGUA">Triple Contigua</option>
+            <option value="ESPECIAL">Especial</option>
+          </select>
+        </div>
+     <div class="selector">
+     <div class="bing">
+	<input type="checkbox" name="row[]" id="checkbox_0" class="custom" value="1"/>
+	      <label for="checkbox_0">1</label>
+	      <input type="checkbox" name="row[]" id="checkbox_1" class="custom" value="2" />
+	      <label for="checkbox_1">2</label>
+	      <input type="checkbox" name="row[]" id="checkbox_2" class="custom" value="3" />
+	      <label for="checkbox_2">3</label>
+	      <input type="checkbox" name="row[]" id="checkbox_3" class="custom" value="4" />
+          <label for="checkbox_3">4</label>
+          </div>
+          <div class="bing">
+	      <input type="checkbox" name="row[]" id="checkbox_4" class="custom" value="5" />
+	      <label for="checkbox_4">5</label>
+          <input type="checkbox" name="row[]" id="checkbox_5" class="custom" value="6" />
+	      <label for="checkbox_5">6</label>
+          <input type="checkbox" name="row[]" id="checkbox_6" class="custom" value="7" />
+	      <label for="checkbox_6">7</label>
+          <input type="checkbox" name="row[]" id="checkbox_7" class="custom" value="8" />
+          <label for="checkbox_7">8</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_8" class="custom" value="9" />
+	      <label for="checkbox_8">9</label>
+          <input type="checkbox" name="row[]" id="checkbox_9" class="custom" value="10" />
+	      <label for="checkbox_9">10</label>
+          <input type="checkbox" name="row[]" id="checkbox_10" class="custom" value="11" />
+	      <label for="checkbox_10">11</label>
+          <input type="checkbox" name="row[]" id="checkbox_11" class="custom" value="12" />
+          <label for="checkbox_11">12</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_12" class="custom" value="13" />
+	      <label for="checkbox_12">13</label>
+          <input type="checkbox" name="row[]" id="checkbox_13" class="custom" value="14" />
+	      <label for="checkbox_13">14</label>
+          <input type="checkbox" name="row[]" id="checkbox_14" class="custom" value="15" />
+	      <label for="checkbox_14">15</label>
+          <input type="checkbox" name="row[]" id="checkbox_15" class="custom" value="16" />
+	      <label for="checkbox_15">16</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_16" class="custom" value="17" />
+	      <label for="checkbox_16">17</label>
+          <input type="checkbox" name="row[]" id="checkbox_17" class="custom" value="18" />
+	      <label for="checkbox_17">18</label>
+          <input type="checkbox" name="row[]" id="checkbox_18" class="custom" value="19" />
+	      <label for="checkbox_18">19</label>
+          <input type="checkbox" name="row[]" id="checkbox_19" class="custom" value="20" />
+	      <label for="checkbox_19">20</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_20" class="custom" value="21" />
+	      <label for="checkbox_20">21</label>
+          <input type="checkbox" name="row[]" id="checkbox_21" class="custom" value="22" />
+	      <label for="checkbox_21">22</label>
+          <input type="checkbox" name="row[]" id="checkbox_22" class="custom" value="23" />
+	      <label for="checkbox_22">23</label>
+          <input type="checkbox" name="row[]" id="checkbox_23" class="custom" value="24" />
+	      <label for="checkbox_23">24</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_24" class="custom" value="25" />
+	      <label for="checkbox_24">25</label>
+          <input type="checkbox" name="row[]" id="checkbox_25" class="custom" value="26" />
+	      <label for="checkbox_25">26</label>
+          <input type="checkbox" name="row[]" id="checkbox_26" class="custom" value="27" />
+	      <label for="checkbox_26">27</label>
+          <input type="checkbox" name="row[]" id="checkbox_27" class="custom" value="28" />
+	      <label for="checkbox_27">28</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_28" class="custom" value="29" />
+	      <label for="checkbox_28">29</label>
+          <input type="checkbox" name="row[]" id="checkbox_29" class="custom" value="30" />
+	      <label for="checkbox_29">30</label>          
+          <input type="checkbox" name="row[]" id="checkbox_30" class="custom" value="31" />
+	      <label for="checkbox_30">31</label>
+          <input type="checkbox" name="row[]" id="checkbox_31" class="custom" value="32" />
+	      <label for="checkbox_31">32</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_32" class="custom" value="33" />
+	      <label for="checkbox_32">33</label>
+          <input type="checkbox" name="row[]" id="checkbox_33" class="custom" value="34" />
+	      <label for="checkbox_33">34</label>
+          <input type="checkbox" name="row[]" id="checkbox_34" class="custom" value="35" />
+	      <label for="checkbox_34">35</label>
+          <input type="checkbox" name="row[]" id="checkbox_35" class="custom" value="36" />
+	      <label for="checkbox_35">36</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_36" class="custom" value="37" />
+	      <label for="checkbox_36">37</label>
+          <input type="checkbox" name="row[]" id="checkbox_37" class="custom" value="38" />
+	      <label for="checkbox_37">38</label>
+          <input type="checkbox" name="row[]" id="checkbox_38" class="custom" value="39" />
+	      <label for="checkbox_38">39</label>
+          <input type="checkbox" name="row[]" id="checkbox_39" class="custom" value="40" />
+	      <label for="checkbox_39">40</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id=         "checkbox_40" class="custom" value="41" />
+	      <label for="checkbox_40">41</label>
+          <input type="checkbox" name="row[]" id="checkbox_41" class="custom" value="42" />
+	      <label for="checkbox_41">42</label>
+          <input type="checkbox" name="row[]" id="checkbox_42" class="custom" value="43" />
+	      <label for="checkbox_42">43</label>
+          <input type="checkbox" name="row[]" id="checkbox_43" class="custom" value="44" />
+	      <label for="checkbox_43">44</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_44" class="custom" value="45" />
+	      <label for="checkbox_44">45</label>
+          <input type="checkbox" name="row[]" id="checkbox_45" class="custom" value="46" />
+	      <label for="checkbox_45">46</label>
+          <input type="checkbox" name="row[]" id="checkbox_46" class="custom" value="47" />
+	      <label for="checkbox_46">47</label>
+          <input type="checkbox" name="row[]" id="checkbox_47" class="custom" value="48" />
+	      <label for="checkbox_47">48</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_48" class="custom" value="49" />
+	      <label for="checkbox_48">49</label>
+          <input type="checkbox" name="row[]" id="checkbox_49" class="custom" value="50" />
+	      <label for="checkbox_49">50</label>          
+          <input type="checkbox" name="row[]" id="checkbox_50" class="custom" value="51" />
+	      <label for="checkbox_50">51</label>
+          <input type="checkbox" name="row[]" id="checkbox_51" class="custom" value="52" />
+	      <label for="checkbox_51">52</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_52" class="custom" value="53" />
+	      <label for="checkbox_52">53</label>
+          <input type="checkbox" name="row[]" id="checkbox_53" class="custom" value="54" />
+	      <label for="checkbox_53">54</label>
+          <input type="checkbox" name="row[]" id="checkbox_54" class="custom" value="55" />
+	      <label for="checkbox_54">55</label>
+          <input type="checkbox" name="row[]" id="checkbox_55" class="custom" value="56" />
+	      <label for="checkbox_55">56</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_56" class="custom" value="57" />
+	      <label for="checkbox_56">57</label>
+          <input type="checkbox" name="row[]" id="checkbox_57" class="custom" value="58" />
+	      <label for="checkbox_57">58</label>
+          <input type="checkbox" name="row[]" id="checkbox_58" class="custom" value="59" />
+	      <label for="checkbox_58">59</label>
+          <input type="checkbox" name="row[]" id="checkbox_59" class="custom" value="60" />
+	      <label for="checkbox_59">60</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_60" class="custom" value="61" />
+	      <label for="checkbox_60">61</label>
+          <input type="checkbox" name="row[]" id="checkbox_61" class="custom" value="62" />
+	      <label for="checkbox_61">62</label>
+          <input type="checkbox" name="row[]" id="checkbox_62" class="custom" value="63" />
+	      <label for="checkbox_62">63</label>
+          <input type="checkbox" name="row[]" id="checkbox_63" class="custom" value="64" />
+	      <label for="checkbox_63">64</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_64" class="custom" value="65" />
+	      <label for="checkbox_64">65</label>
+          <input type="checkbox" name="row[]" id="checkbox_65" class="custom" value="66" />
+	      <label for="checkbox_65">66</label>
+          <input type="checkbox" name="row[]" id="checkbox_66" class="custom" value="67" />
+	      <label for="checkbox_66">67</label>
+          <input type="checkbox" name="row[]" id="checkbox_67" class="custom" value="68" />
+	      <label for="checkbox_67">68</label>
+          </div>
+          <div class="bing">
+          <input type="checkbox" name="row[]" id="checkbox_68" class="custom" value="69" />
+	      <label for="checkbox_68">69</label>
+          <input type="checkbox" name="row[]" id="checkbox_69" class="custom" value="70" />
+	      <label for="checkbox_69">70</label>
+          <input type="checkbox" name="row[]" id="checkbox_70" class="custom" value="71" />
+	      <label for="checkbox_70">71</label>
+          <input type="checkbox" name="row[]" id="checkbox_71" class="custom" value="72" />
+	      <label for="checkbox_71">72</label>
+          </div>
+       </div>
+      <div class="env">
+        	<input name="enviar" id="enviar" type="button" value="Enviar" onClick="enviar()">
+    </div>
+   </div> 
+           
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
